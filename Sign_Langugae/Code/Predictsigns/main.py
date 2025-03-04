@@ -85,7 +85,7 @@ def loggin():
 
                 label4 = Label(f2, text="                                                        HandTalk Decoder", font=("arial", 10, "bold"), bg="grey16", fg="white")
                 label4.pack(side=BOTTOM, fill=X)
-                statusbar = Label(f1, text="                                                        HandTalk Decoder", font=("arial", 8, "bold"),bg="grey16", fg="white", relief=SUNKEN, anchor=W)
+                statusbar = Label(f1, text="                                                     HandTalk Decoder", font=("arial", 8, "bold"),bg="grey16", fg="white", relief=SUNKEN, anchor=W)
                 statusbar.pack(side=BOTTOM, fill=X)
 
                 class AnimatedGIF(Label, object):
@@ -169,7 +169,7 @@ def loggin():
                         super(AnimatedGIF, self).place_forget(**kwargs)
 
                 if __name__ == "__main__":
-                    l = AnimatedGIF(f1, "files/gif2.gif")
+                    l = AnimatedGIF(f1, "files/gif1.gif")
                     l.pack()
 
                 label4 = Label(f3, text="                                                        HandTalk Decoder", font=("arial", 10, "bold"), bg="grey16",fg="white")
@@ -178,13 +178,13 @@ def loggin():
                 # =========================Main Buttons=========================================
 
                 btn2w2 = ttk.Button(f1, text="Predict Sign", command=pred_main)
-                btn2w2.place(x=255, y=115, width=150, height=30)
+                btn2w2.place(x=125, y=115, width=150, height=30)
 
                 btn3w2 = ttk.Button(f1, text="Translate speech", command=rr_main)
-                btn3w2.place(x=255, y=170, width=150, height=30)
+                btn3w2.place(x=125, y=170, width=150, height=30)
 
                 btn6w2 = ttk.Button(f1, text="Create Signs", command=cd_main)
-                btn6w2.place(x=255, y=225, width=150, height=30)
+                btn6w2.place(x=125, y=225, width=150, height=30)
 
                 # =========================Developers Page=========================================
 
@@ -207,13 +207,13 @@ def loggin():
                     frame.tkraise()
 
                 btn9w2 = ttk.Button(f1, text="Developers", command=lambda: swap3(f4))
-                btn9w2.place(x=255, y=280, width=150, height=30)
+                btn9w2.place(x=35, y=335, width=150, height=30)
 
                 def quit():
                     window2.destroy()
 
                 btn9w2 = ttk.Button(f1, text="Exit", command=quit)
-                btn9w2.place(x=255, y=335, width=150, height=30)
+                btn9w2.place(x=215, y=335, width=150, height=30)
 
                 f1.tkraise()
                 window2.mainloop()
@@ -227,7 +227,7 @@ def loggin():
 # ======================Main Login Screen============================================
 
 window = Tk()
-window.title("Login Panel")
+window.title("Login")
 Label1 = Label(window, text="Login Panel", font=("arial", 20, "bold"), bg="grey19", fg="white")
 Label1.pack(side=TOP, fill=X)
 Label2 = Label(window, text="", font=("arial", 10, "bold"), bg="grey19", fg="white")
@@ -245,30 +245,30 @@ nb.pack(expand=True, fill="both")
 # =============Login tab=========================================
 
 name2_label = Label(tab1, text="Name", font=("arial", 10, "bold"))
-name2_label.place(x=10, y=10)
+name2_label.place(x=80, y=50)
 name2_entry = StringVar()
 name2_entry = ttk.Entry(tab1, textvariable=name2_entry)
-name2_entry.place(x=90, y=10)
+name2_entry.place(x=160, y=50)
 name2_entry.focus()
 
 pass2_label = Label(tab1, text="Password", font=("arial", 10, "bold"))
-pass2_label.place(x=10, y=40)
+pass2_label.place(x=80, y=90)
 pass2_entry = StringVar()
 pass2_entry = ttk.Entry(tab1, textvariable=pass2_entry, show="*")
-pass2_entry.place(x=90, y=40)
+pass2_entry.place(x=160, y=90)
 
 # =====================Signup Tab===============================
 name_label = Label(tab2, text="Name", font=("arial", 10, "bold"))
-name_label.place(x=10, y=10)
+name_label.place(x=80, y=50)
 name_entry = StringVar()
 name_entry = ttk.Entry(tab2, textvariable=name_entry)
-name_entry.place(x=90, y=10)
+name_entry.place(x=160, y=50)
 name_entry.focus()
 pass_label = Label(tab2, text="Password", font=("arial", 10, "bold"))
-pass_label.place(x=10, y=40)
+pass_label.place(x=80, y=90)
 pass_entry = StringVar()
 pass_entry = ttk.Entry(tab2, textvariable=pass_entry, show="*")
-pass_entry.place(x=90, y=40)
+pass_entry.place(x=160, y=90)
 
 
 def clear():
@@ -278,14 +278,14 @@ def clear():
 # ===============User Buttons==============================================
 
 btn1 = ttk.Button(tab2, text="Add User", command=saveadmin)
-btn1.place(x=50, y=80)
+btn1.place(x=110, y=140)
 btn2 = ttk.Button(tab2, text="Clear", command=clear)
-btn2.place(x=140, y=80)
+btn2.place(x=210, y=140)
 
 # ================Login Button Main======================================
 
 btn3 = ttk.Button(tab1, text="Login", width=20, command=loggin)
-btn3.place(x=87, y=80)
+btn3.place(x=140, y=140)
 
 window.geometry("400x400+420+170")
 window.resizable(False, False)
