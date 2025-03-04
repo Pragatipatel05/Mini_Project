@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Recognition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            background: #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        video,
+        canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .buttons {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .buttons button {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .start {
+            background: green;
+            color: white;
+        }
+
+        .stop {
+            background: red;
+            color: white;
+        }
+
+        .clear,
+        .save {
+            background: gray;
+            color: white;
+        }
+
+        textarea {
+            width: 100%;
+            height: 50px;
+            margin-top: 10px;
+            padding: 5px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="video-container">
+            <video id="video" autoplay playsinline muted></video>
+            <canvas id="canvas" class="overlay"></canvas>
+        </div>
+        <textarea id="textOutput" placeholder="Detected text will appear here..."></textarea>
+        <div class="buttons">
+            <button id="toggleRecording" class="start">Start</button>
+            <button id="clearText" class="clear">Clear All</button>
+            <button id="saveText" class="save">Save to Text File</button>
+        </div>
+    </div>
+
+    <script type="py" src="Code\Predictsigns\main.py" config="./pyscript.toml"></script>
+    <script>
+        let isRecording = false;
+        const video = document.getElementById("video");
+        const toggleRecordingBtn = document.getElementById("toggleRecording");
+        const textOutput = document.getElementById("textOutput");
+
+        async function startWebcam() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 } });
+                video.srcObject = stream;
+            } catch (err) {
+                console.error("Error accessing webcam:", err);
+            }
+        }
+
+        function stopWebcam() {
+            const stream = video.srcObject;
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+        }
+
+        toggleRecordingBtn.addEventListener("click", () => {
+            fetch("http://localhost:5000/start-script")  // Calls the Flask server
+                .then(response => response.json())
+                .then(data => alert(data.message))
+                .catch(error => console.error("Error:", error));
+        });
+
+        document.getElementById("clearText").addEventListener("click", () => {
+            textOutput.value = "";
+        });
+
+        document.getElementById("saveText").addEventListener("click", () => {
+            const blob = new Blob([textOutput.value], { type: "text/plain" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "detected_text.txt";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        });
+    </script>
+
+</body>
+
+</html>

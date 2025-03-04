@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HandTalk Decoder</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+</head>
+<div class="parallax"></div>
+
+<body>
+
+    <nav id="desktop-nav">
+        <div class="logo">HandTalk</div>
+        <div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">How It Works</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="profile">
+        <div class="section__pic-container">
+            <img src="/images/Indian-Sign-language.svg" class="profile_pic" />
+        </div>
+        <div class="section__text">
+            <h1 class="title">HandTalk Decoder</h1>
+            <p class="section__text__p2">Bridging the Communication Gap</p>
+            <div class="btn-container">
+                <button class="btn btn-color-1">
+                    <a href="#projects" style="color: inherit; text-decoration: none;">Project</a>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <p class="section__text__p1">Get To Know More</p>
+        <h1 class="title1">About Me</h1>
+        <div class="section-container">
+            <div class="about-details-container">
+                <div class="text-container">
+                    <div class="text-content">
+                        <p>
+                            We are a team passionate about making communication easier for everyone, especially for
+                            those in the deaf and hard of hearing community. Our goal is to break down the barriers of
+                            communication using technology to promote inclusivity.
+                        </p><br><br><br>
+                        <h3 style="color: #C70039;">Vision:</h3>
+                        <br><br><br>
+                        <p>
+                            The Sign Language Decoder website aims to bridge communication gaps by offering accessible,
+                            real-time sign language translation. It empowers users, promotes inclusivity, raises
+                            awareness, and provides educational resources to foster understanding and seamless
+                            communication for the deaf and hard-of-hearing community.
+                        </p>
+                    </div>
+                    <div class="image-container">
+                        <img src="/images/3.jpg" alt="Sign Language Decoder" />
+                    </div>
+                </div>
+
+                <div class="about-containers">
+                    <div class="details-container">
+                        <h3 style="color: #C70039;">Why Choose Us</h3>
+                    </div>
+                    <div class="reasons-container">
+                        <div class="reason-box">
+                            <img src="/images/3.png" alt="Reason 1" class="reason-image">
+                            <p>Fast and Reliable Service</p>
+                        </div>
+                        <div class="reason-box">
+                            <img src="/images/5.png" alt="Reason 2" class="reason-image">
+                            <p>Secure and Safe</p>
+                        </div>
+                        <div class="reason-box">
+                            <img src="/images/4.png" alt="Reason 3" class="reason-image">
+                            <p>User-friendly Interface</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- How it works -->
+    <section id="experience">
+        <h1 class="title">How it Works</h1>
+        <hr style="width: 900px; height: 1.2px; background-color: rgba(29, 28, 28, 0.427);">
+        <div class="exp-video">
+            <video src="Images/2025-02-08 18-30-23.mkv" alt="Expirence"></video>
+        </div>
+    </section>
+
+
+    <!-- Add the Projects section -->
+    <section id="projects">
+        <h1 class="title">Projects</h1>
+        <!-- Add your project content here -->
+        <br>
+        <hr>
+        <div class="buttons">
+            <button class="bttn" onclick="location.href='upload.html'">
+                <img src="images/upload2.png" alt="Upload Icon">
+                Upload
+            </button>
+            <button class="bttn" onclick="startWebcam()">
+                <img src="images/web.png" alt="Webcam Icon">
+                Webcam
+            </button>
+
+            <script>
+                function startWebcam() {
+                    fetch('http://localhost:3000/start-webcam')
+                        .then(response => response.text())
+                        .then(data => console.log(data))
+                        .catch(error => console.error('Error:', error));
+                }
+            </script>
+
+
+        </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer Section -->
+
+    <section id="contact">
+        <h1 class="title"></h1>
+        <div class="footer">
+            <p>Connect with us on social media:</p>
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+                <img src="images/linkedin.png" alt="LinkedIn" width="30">
+            </a>
+            <a href="https://www.facebook.com/yourprofile" target="_blank">
+                <img src="images/facebook.png" alt="Facebook" width="30">
+            </a>
+            <a href="https://www.instagram.com/yourprofile" target="_blank">
+                <img src="images/instagram.png" alt="Instagram" width="30">
+            </a>
+            <a href="mailto:support@example.com">
+                <img src="images/gmail.png" alt="Email" width="30">
+            </a>
+            <p>© 2025 HandTalk Decoder. All rights reserved.</p>
+        </div>
+    </section>
+    <div class="parallax"></div>
+</body>
+
+</html>
