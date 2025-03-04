@@ -2,6 +2,7 @@ HandTalk Decoder
 
 Steps to setup project:
 
+
 #for creating venv(sign) and installing required packages
 conda create --name sign python=3.7.1
 conda activate sign
@@ -10,6 +11,8 @@ pip install -r requirements.txt
 cd D:\Sign-Language\Code\Predictsigns #path of file 
 pip install protobuf==3.20.3
 set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
+
+
 
 #for running server on port 3000
 node -v
